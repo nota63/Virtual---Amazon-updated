@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #e3f2fd;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            width: 200px;
+            height: 270px;
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .login-container p {
+            font-size: 12px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .login-container .alert {
+            font-size: 10px;
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+
+        .login-container img {
+            width: 40px;
+            margin-bottom: 10px;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-container input {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            padding: 8px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #007bff;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .progress-bar-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 10px;
+            width: 0;
+            background-color: #007bff;
+            border-radius: 10px;
+        }
+
+        .progress-text {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <p>Secured by Django's built-in security</p>
+        <img src="https://img.icons8.com/ios-filled/50/000000/security-guard.png" alt="Security Logo">
+        <h2>Get Started for Owner</h2>
+        <div class="alert">Enter the password you got from the developer</div>
+        <form id="login-form" method="post" novalidate>
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="progress-bar-container" id="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            </div>
+            <div class="progress-text" id="progress-text">Preparing getting started for owner</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.from(".login-container", {
+                duration: 1.5,
+                y: -100,
+                opacity: 0,
+                ease: "back"
+            });
+
+            gsap.from("img", {
+                duration: 1.5,
+                rotation: 720,
+                opacity: 0,
+                ease: "elastic"
+            });
+
+            gsap.from("h2", {
+                duration: 1.5,
+                scale: 0.5,
+                opacity: 0,
+                ease: "bounce"
+            });
+
+            gsap.from("p, .alert", {
+                duration: 1.5,
+                y: -20,
+                opacity: 0,
+                ease: "power1"
+            });
+        });
+
+        const form = document.getElementById("login-form");
+        const progressBarContainer = document.getElementById("progress-bar-container");
+        const progressBarFill = document.getElementById("progress-bar-fill");
+        const progressText = document.getElementById("progress-text");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            // Hide the form elements
+            form.style.display = 'none';
+
+            // Show the progress bar
+            progressBarContainer.style.display = 'flex';
+
+            // Animate the progress bar
+            gsap.to(progressBarFill, {
+                width: '100%',
+                duration: 2,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+</head>
+<body>
+     <h5>keep save your passwords in our database to access it anytime! whether you are admin or an user!</h5>
+
+     <section>
+         <div class="admin-">
+             <form method="post">
+                 {% csrf_token %}
+                 <input type="text" name="username" placeholder="Username to save" required>
+                 <br>
+                 <input type="text" name="password" placeholder="password" required>
+                 <br>
+                 <button type="submit">Encrypt</button>
+             </form>
+         </div>
+     </section>
+
+
+</body>
+</html>

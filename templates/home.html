@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 20px;
+        }
+        .item {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+        }
+        .item img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="item">
+            <a href="{% url 'owner_login'%}">
+                <img src="https://registerowner.com/wp-content/uploads/2019/06/logo.png" height="40">
+            </a>
+        </section>
+        <!-- Add more sections for each item -->
+        <section class="item">
+            <a href="{% url 'owner_admin'%}">
+                <img src="https://th.bing.com/th/id/OIP._2py84QSFIksCTtRCuROgAHaHa?rs=1&pid=ImgDetMain" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'about-us'%}">
+                <img src="https://1.bp.blogspot.com/-VEtfw8yLU5w/YD1UiPcrTlI/AAAAAAAAAP0/3niYYymYUOUoOzDAM6AMYGuii-Jpd7GzQCLcBGAsYHQ/s591/about-us-logo-png-6.png" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'ebook'%}">
+                <img src="https://th.bing.com/th/id/OIP.QhcY9QCnTiII2UE4-SjTCQHaHa?rs=1&pid=ImgDetMain" height="70">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'mobile'%}">
+                <img src="https://th.bing.com/th/id/OIP.FUFgR7BTOsVoy85OYUyxpgHaHa?rs=1&pid=ImgDetMain" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'clothes'%}">
+                <img src="https://th.bing.com/th/id/OIP.P3LJUt5cOWIpXcHZI9SAeQHaHa?rs=1&pid=ImgDetMain" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'laptops' %}">
+                <img src="https://images.vexels.com/media/users/3/157295/isolated/preview/5ab1a21aaafa93397c0d6eedcb24731e-computer-laptop-icon-by-vexels.png" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'electronics'%}">
+                <img src="https://th.bing.com/th/id/OIP.cpF0uGtOhlDTNGZPWwgTUQHaFS?rs=1&pid=ImgDetMain" height="80">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'shoes' %}">
+                <img src="https://www.creativefabrica.com/wp-content/uploads/2022/10/19/Sneakers-Shoe-Logo-Design-Graphics-42284185-1.jpg" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'antivirus'%}">
+                <img src="https://th.bing.com/th/id/R.4bec3196110475778e408f126668573f?rik=jujohPP5rLEWrw&riu=http%3a%2f%2fstatic.promotionalcodes.org.uk%2fblog%2fmerchant-images%2flogo%2fmcafee-promotional-code.png&ehk=GRKYy6%2f1h4g4PN73V2CH09wlWDLjhwZXE9K1gWbrnEo%3d&risl=&pid=ImgRaw&r=0" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'watches'%}">
+                <img src="https://th.bing.com/th/id/OIP.rdgYjH9kIk5DuPovZT4jBwHaHa?rs=1&pid=ImgDetMain" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'monitors'%}">
+                <img src="https://hajaan.com/wp-content/uploads/2023/03/X2723C-A-2.jpg" height="50">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'arduino'%}">
+                <img src="https://logodownload.org/wp-content/uploads/2019/03/arduino-logo-0.png" height="70">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'televisions'%}">
+                <img src="https://m.media-amazon.com/images/I/515nUsP+-7L._SX300_SY300_.jpg" height="40">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'mouse'%}">
+                <img src="https://m.media-amazon.com/images/I/31+ZBc9nRhL._SY300_SX300_.jpg" height="55">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'games'%}">
+                <img src="https://m.media-amazon.com/images/I/81kAitW5qAL._AC_UY218_.jpg" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'developer'%}">
+                <img src="https://www.logomoose.com/wp-content/uploads/2017/09/developer-01.png" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'amazon'%}">
+                <img src="https://th.bing.com/th/id/OIP.JfJRL4GepTdGhE8edI7ohQHaHa?rs=1&pid=ImgDetMain" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'flipkart2'%}">
+                <img src="https://thumbs.dreamstime.com/b/flipcart-logo-219165303.jpg" height="50">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'documentation'%}">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/documents-3440962-2888136.png" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'myntra'%}">
+                <img src="https://th.bing.com/th/id/OIP.te86PFl36qpw7_6NH44ecwHaHa?rs=1&pid=ImgDetMain" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'collaboration'%}">
+                <img src="https://i.pinimg.com/originals/a6/f5/cf/a6f5cffb69ab91cad466e37fb12c4584.jpg" height="60">
+            </a>
+        </section>
+        <section class="item">
+            <a href="{% url 'about_web'%}">
+                <img src="https://i.pinimg.com/originals/39/6c/d8/396cd8e1d8557f73c786892cffa4f13c.png" height="50">
+            </a>
+        </section>
+
+        <section class="item">
+            <a href="{% url 'car' %}">
+                <img src="https://th.bing.com/th/id/R.07ae4184325dfd99725442ec3ac16328?rik=ufJuxjOE7gNJ9w&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fcar-transparent-background%2fcar-transparent-background-22.png&ehk=pHFKR7cFiqlqYImNAsBz8Z7rFcJIT9RgZy4NR%2bm48YU%3d&risl=&pid=ImgRaw&r=0" height="60">
+            </a>
+        </section>
+
+        <section class="item">
+            <a href="{% url 'bike' %}">
+                <img src="https://th.bing.com/th/id/OIP.hVGo8wxypNFCWyd0zx_T3QHaHa?rs=1&pid=ImgDetMain" height="70">
+            </a>
+        </section>
+
+
+
+    </div>
+
+    <!-- Include GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        // GSAP animation for items
+        gsap.set(".item", { opacity: 0, scale: 0 });
+        gsap.to(".item", {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "power4.out",
+            stagger: 0.2
+        });
+    </script>
+</body>
+</html

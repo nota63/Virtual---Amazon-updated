@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <style>
+        /* Style for the documentation container */
+        .documentation-container {
+            width: 400px;
+            height: 400px;
+            overflow-y: auto; /* Enable vertical scroll */
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin: 20px auto;
+        }
+        /* Style for the animation */
+        .animate-me {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="documentation-container">
+        <!-- Content will be dynamically inserted here -->
+        <h1> Documentation as 1.0.09</h1>
+
+        <h2>owner_admin(request)</h2>
+        <p>
+            Facilitates the administrative portal for proprietors. The function initializes by verifying the HTTP request method. Upon confirmation of a POST request, it extracts user-provided credentials (`username` and `password`) from the POST data. Concurrently, the function logs the current timestamp (`moment`) formatted as `%d-%m-%y :%H: %M: %S`. This temporal data, alongside the credentials, is encapsulated within a dictionary (`credentials`) and stored in the session storage, persisting for a duration equivalent to one solar year (365 days).
+        </p>
+
+        <h2>home(request)</h2>
+        <p>
+            Renders the principal entry point of the web application. The function serves as a direct conduit to the `home.html` template.
+        </p>
+
+        <h2>about_us(request)</h2>
+        <p>
+            Renders the informational page delineating the background and mission of the web application.
+        </p>
+
+        <h2>ebook(request)</h2>
+        <p>
+            Interacts with the `Book` model to retrieve all records. The resultant queryset is conveyed to the `ebook.html` template within the context dictionary under the key `book`.
+        </p>
+
+        <h2>mobile(request)</h2>
+        <p>
+            Extracts all entries from the `Mobile` model and transmits the queryset to the `mobile.html` template within the context dictionary under the key `phones`.
+        </p>
+
+        <h2>clothes(request)</h2>
+        <p>
+            Retrieves all instances of the `Clothes` model and dispatches the queryset to the `clothes.html` template within the context dictionary under the key `cloth`.
+        </p>
+
+        <h2>laptops(request)</h2>
+        <p>
+            Gathers all records from the `Laptops` model, which are then included in the context dictionary under the key `lap` and rendered via the `laptops.html` template.
+        </p>
+
+        <h2>electronics(request)</h2>
+        <p>
+            Collates all entities from the `Electronics` model. The gathered data is injected into the context dictionary under the key `electric` and rendered using the `electronics.html` template.
+        </p>
+
+        <h2>shoes(request)</h2>
+        <p>
+            Acquires all entries from the `Shoes` model. The data is embedded within the context dictionary under the key `shoes` and rendered using the `shoes.html` template.
+        </p>
+
+        <h2>antivirus(request)</h2>
+        <p>
+            Fetches all records from the `Antivirus` model, which are subsequently passed to the `antivirus.html` template within the context dictionary under the key `virus`.
+        </p>
+
+        <h2>watches(request)</h2>
+        <p>
+            Collects all entries from the `Watches` model and renders them within the `watches.html` template. The data is provided in the context dictionary under the key `watches`.
+        </p>
+
+        <h2>monitors(request)</h2>
+        <p>
+            Aggregates all records from the `Monitors` model and renders them within the `monitors.html` template. The data is conveyed in the context dictionary under the key `monitors`.
+        </p>
+
+        <h2>arduino(request)</h2>
+        <p>
+            Retrieves all instances of the `Arduino` model and renders them within the `arduino.html` template. The data is included in the context dictionary under the key `arduino`.
+        </p>
+
+        <h2>televisions(request)</h2>
+        <p>
+            Acquires all records from the `Televisions` model and renders them within the `televisions.html` template. The data is incorporated in the context dictionary under the key `tv`.
+        </p>
+
+        <h2>mouse(request)</h2>
+        <p>
+            Compiles all entries from the `Mouse` model and renders them within the `mouse.html` template. The data is provided in the context dictionary under the key `mouse`.
+        </p>
+
+        <h2>games(request)</h2>
+        <p>
+            Collates all records from the `Games` model and renders them within the `games.html` template. The data is embedded in the context dictionary under the key `games`.
+        </p>
+
+        <h2>owner_login(request)</h2>
+        <p>
+            Facilitates the login mechanism for the owner. It scrutinizes the request method and validates user credentials against a predefined list of acceptable passwords. Upon successful validation, it renders the `hash1290.html` template, otherwise redirects back to the login page.
+        </p>
+
+        <h2>hash1290(request)</h2>
+        <p>
+            Renders the hash1290 page, which is presumably a secured area accessible post-login.
+        </p>
+
+        <h2>help(request)</h2>
+        <p>
+            Renders the help page, providing assistance and support information to users.
+        </p>
+
+        <h2>developer(request)</h2>
+        <p>
+            Renders the developer page, likely containing information about the developers or development process of the application.
+        </p>
+
+        <h2>feedback(request)</h2>
+        <p>
+            Handles user feedback. It validates that all necessary fields are completed and attempts to send the feedback via WhatsApp using `pywhatkit`. If successful, it renders a thank-you message; otherwise, it returns an error message.
+        </p>
+
+        <h2>amazon(request)</h2>
+        <p>
+            Fetches all records from the `Amazon2` model and renders them within the `amazon.html` template. The data is provided in the context dictionary under the key `amazon2`.
+        </p>
+
+        <h2>flipkart2(request)</h2>
+        <p>
+            Aggregates all entries from the `Flipkart2` model and renders them within the `flipkart2.html` template. The data is included in the context dictionary under the key `flipkart2`.
+        </p>
+
+        <h2>documentation(request)</h2>
+        <p>
+            Utilizes `pydoc` to generate documentation for the `amazon` module and renders this documentation within the `documentation.html` template.
+        </p>
+    </div>
+
+    <!-- Include GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        // Function to animate content on load
+        function animateContent() {
+            const container = document.querySelector('.documentation-container');
+
+            // GSAP animation
+            gsap.from('.animate-me', {
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power1.inOut"
+            });
+        }
+
+        // Animate content when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            animateContent();
+        });
+    </script>
+</body>
+</html>

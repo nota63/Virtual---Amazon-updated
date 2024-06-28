@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .spinner-container, .update-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .spinner-container {
+            display: none;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .update-container {
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-logo {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .version {
+            font-size: 14px;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar-fill {
+            width: 0;
+            height: 10px;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+        .no-updates {
+            display: none;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .back-button {
+            width: 90%;
+            padding: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="spinner-container">
+        <div class="spinner"></div>
+        <p>Redirecting to update section...</p>
+    </div>
+
+    <div class="update-container">
+        {% load static %}
+        <img src="{% static 'app.png' %}" alt="App Logo" class="app-logo">
+        <div class="version">Version: 1.0.09</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill"></div>
+        </div>
+        <div class="no-updates">No updates available</div>
+        <button class="back-button" onclick="history.back()">Back</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const spinnerContainer = document.querySelector('.spinner-container');
+            const updateContainer = document.querySelector('.update-container');
+            const progressBarFill = document.querySelector('.progress-bar-fill');
+            const noUpdates = document.querySelector('.no-updates');
+
+            spinnerContainer.style.display = 'flex';
+
+            setTimeout(() => {
+                spinnerContainer.style.display = 'none';
+                updateContainer.style.display = 'flex';
+
+                gsap.to(progressBarFill, {
+                    duration: 3,
+                    width: '100%',
+                    ease: 'power3.out',
+                    onComplete: () => {
+                        noUpdates.style.display = 'block';
+                    }
+                });
+            }, 3000);
+        });
+
+        gsap.from(".spinner", {
+            duration: 1.5,
+            opacity: 0,
+            scale: 0.5,
+            ease: "power3.out"
+        });
+
+        gsap.from(".update-container", {
+            duration: 1.5,
+            opacity: 0,
+            scale: 0.8,
+            ease: "power3.out",
+            delay: 3
+        });
+
+        gsap.from(".app-logo", {
+            duration: 1,
+            opacity: 0,
+            scale: 0,
+            delay: 3.5,
+            ease: "back.out(1.7)"
+        });
+
+        gsap.from(".version, .progress-bar, .no-updates, .back-button", {
+            duration: 1,
+            opacity: 0,
+            y: -20,
+            stagger: 0.2,
+            delay: 4,
+            ease: "power3.out"
+        });
+    </script>
+</body>
+</html>

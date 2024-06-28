@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Owner</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .welcome-container {
+            text-align: center;
+            margin-bottom: 20px;
+            background: #007bff;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .welcome-container h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-container p {
+            font-size: 16px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 20px;
+        }
+
+        .info-box {
+            width: 300px;
+            height: 200px;
+            background: #f8f9fa;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .info-box img {
+            max-width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .gif-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .credentials-box {
+            background: #ffffff;
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 123, 255, 0.1);
+            opacity: 0;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .detail-list {
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .detail-list li {
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .footer img {
+            width: 50px;
+            margin-top: 20px;
+        }
+
+        .help-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .help-button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+<!--        more button-->
+
+        .more-button {
+           display: inline-block;
+           border-radius: 20px;
+           overflow: hidden;
+           border: 2px solid #6ac0ff; /* Light-blue border */
+           background-color: #ffffff; /* White background */
+           padding: 10px 20px; /* Adjust padding for spacing inside the button */
+           text-align: center; /* Center align text or content */
+           transition: background-color 0.3s, border-color 0.3s; /* Smooth transitions for background and border color */
+
+           /* Optional: Set box-shadow for depth */
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .more-button a {
+              display: block;
+              text-decoration: none; /* Remove underline from the link */
+              color: inherit; /* Inherit text color */
+        }
+
+       .more-button:hover {
+            background-color: #f0f0f0; /* Light gray background on hover */
+            border-color: #4fa7e2; /* Darker shade of blue on hover */
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+       }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Hello, Welcome {{username}}!</h1>
+        <p>I am glad to meet my new owner. Here you will get all the info on how to get started.</p>
+    </div>
+
+    <div class="container">
+        <div class="info-box gif-box">
+            <img src="https://cdn-images-1.medium.com/v2/resize:fit:800/1*7aavF45iNwPayby24aGGOQ.gif" alt="Django Admin GIF">
+            <p>How to add items in Django Admin Panel</p>
+            <div class="glow"></div>
+        </div>
+
+        <div class="info-box">
+            <img src="https://img.icons8.com/ios-filled/50/000000/security-checked.png" alt="Security Icon">
+            <p>How to add products into your website through the Django admin panel:</p>
+            <p>Login to the Django admin panel using your credentials.</p>
+            <div class="glow"></div>
+        </div>
+
+        <div class="info-box">
+            <img src="https://img.icons8.com/ios-filled/50/000000/lock-2.png" alt="Lock Icon">
+            <p>Your Django Admin Panel Login Credentials:</p>
+            <div class="credentials-box">
+                <p><strong>Username:</strong> vishal</p>
+                <p><strong>Password:</strong> 1234</p>
+            </div>
+            <div class="glow"></div>
+        </div>
+
+        <div class="info-box">
+            <img src="https://th.bing.com/th/id/OIP.Rd8AuvpiNoiLtfNoQ36RwAHaGJ?rs=1&pid=ImgDetMain" alt="Secure Icon">
+            <p>Powered and secured by Django's powerful built-in security.</p>
+            <div class="glow"></div>
+        </div>
+
+       <a href="{% url 'help' %}" class="clickable-info-box">
+          <div class="info-box help-box">
+             <button class="help-button">Help</button>
+             <div class="glow"></div>
+          </div>
+       </a>
+
+
+
+<!--    </div>-->
+
+    <div class="copy">
+       <div class="footer">
+           <p>We Got Millions Of Humans Trust Over Our Security</p>
+           <img src="https://th.bing.com/th/id/OIP.EPXvJwCnqgwU05PHiWH_9gAAAA?w=420&h=180&rs=1&pid=ImgDetMain" alt="Django Logo">
+       </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.from(".welcome-container h1", {
+                duration: 1,
+                y: -50,
+                opacity: 0,
+                ease: "back"
+            });
+
+            gsap.from(".welcome-container p", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "back"
+            });
+
+            gsap.from(".info-box", {
+                duration: 1,
+                scale: 0.8,
+                opacity: 0,
+                stagger: 0.3,
+                ease: "elastic"
+            });
+
+            gsap.to(".glow", {
+                duration: 1,
+                opacity: 0.8,
+                yoyo: true,
+                repeat: -1,
+                ease: "power1.inOut"
+            });
+
+            const animateText = (element) => {
+                const text = element.textContent;
+                element.textContent = "";
+                text.split("").forEach((char, i) => {
+                    const span = document.createElement("span");
+                    span.textContent = char;
+                    span.style.opacity = "0";
+                    element.appendChild(span);
+                    gsap.to(span, {
+                        duration: 0.05,
+                        opacity: 1,
+                        delay: i * 0.05
+                    });
+                });
+            };
+
+            document.querySelectorAll(".info-box p, .detail-list li, .credentials-box p, .footer p").forEach(animateText);
+        });
+    </script>
+</body>
+</html>

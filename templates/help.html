@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Add Items Through Django Admin Panel</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  .container {
+    width: 350px;
+    max-height: 450px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    position: relative;
+  }
+  .container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  .info {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  .back-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #5bc0de; /* Light blue color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .back-btn:hover {
+    background-color: #31b0d5; /* Darker shade of blue on hover */
+    transform: scale(1.1);
+  }
+  .back-btn img {
+    width: 24px;
+    height: 24px;
+    fill: #fff; /* White color for the arrow icon */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="back-btn" onclick="history.go(-1);">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M0 0h24v24H0V0z" fill="none"/>
+      <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+    </svg>
+  </div>
+  <h2>How to Add Items Through Django Admin Panel</h2>
+  <p class="info">1. Go to the admin panel and log in with your credentials.</p>
+  <p class="info">2. Navigate to the section where items are listed, such as books or laptops.</p>
+  <p class="info">3. Click on any section to access the dashboard.</p>
+  <p class="info">4. In the dashboard, you will find fields like image_url, title, and price.</p>
+  <p class="info">5. Go to Amazon or Flipkart, select the product you want to add, and copy the image link of the product. Paste it into the image_url field.</p>
+  <p class="info">6. Give a title to your item.</p>
+  <p class="info">7. Enter the price of your item.</p>
+  <p class="info">8. Right-click and select the option to add a link. Go to Amazon, copy the link, and paste it into the appropriate field. Your product will be added successfully.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+  gsap.to('.container', {
+    duration: 1,
+    width: '400px',
+    minHeight: '400px',
+    borderRadius: '10px',
+    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+    ease: 'power2.inOut'
+  });
+  gsap.from('.info', {
+    duration: 1,
+    opacity: 0,
+    y: -20,
+    stagger: 0.2,
+    ease: 'power2.out'
+  });
+</script>
+
+</body>
+</html>

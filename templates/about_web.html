@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Our App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .about-container {
+            width: 250px;
+            height: 250px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-logo {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 16px;
+            color: #333333;
+            margin: 5px 0;
+        }
+
+        p {
+            font-size: 12px;
+            color: #666666;
+            margin: 5px 0;
+            line-height: 1.2;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .feature {
+            width: 90%;
+            padding: 5px;
+            margin-bottom: 5px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+        }
+
+        .feature h2 {
+            font-size: 14px;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            font-size: 10px;
+            color: #555555;
+        }
+
+        .update-button {
+            width: 90%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        {% load static %}
+        <img src="{% static 'app.png'%}" alt="App Logo" class="app-logo">
+        <h1>About Our App</h1>
+        <p>Virtual-Amazon Version 1.0.09</p>
+
+        <div class="features">
+            <div class="feature">
+                <h2>Feature 1</h2>
+                <p>Profitable</p>
+            </div>
+            <div class="feature">
+                <h2>Feature 2</h2>
+                <p>Powered and secured by django s built in security</p>
+            </div>
+            <div class="feature">
+                <h2>Feature 3</h2>
+                <p>SQlite 3 database implemented for store users information</p>
+            </div>
+
+            <div class="feature">
+                <h2>Feature 4</h2>
+                <p>Two saperated parts for user and an admin</p>
+            </div>
+
+             <div class="feature">
+                <h2>Feature 5</h2>
+                <p>Provides extra security features for Admin</p>
+            </div>
+
+        </div>
+
+        <a href="{% url 'update'%}" class="update-button">Update</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        gsap.from(".about-container", {
+            duration: 1.5,
+            opacity: 0,
+            scale: 0.8,
+            ease: "power3.out"
+        });
+
+        gsap.from(".app-logo", {
+            duration: 1,
+            opacity: 0,
+            scale: 0,
+            delay: 0.5,
+            ease: "back.out(1.7)"
+        });
+
+        gsap.from(".features .feature", {
+            duration: 1,
+            opacity: 0,
+            y: 50,
+            stagger: 0.2,
+            delay: 1,
+            ease: "power3.out"
+        });
+
+        gsap.from("h1, p", {
+            duration: 1,
+            opacity: 0,
+            y: -20,
+            stagger: 0.2,
+            delay: 0.5,
+            ease: "power3.out"
+        });
+
+        gsap.from(".update-button", {
+            duration: 1,
+            opacity: 0,
+            scale: 0.8,
+            delay: 1.5,
+            ease: "power3.out"
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Ecommerce Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0; /* Formal background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 200px; /* Compact size */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .form-input input {
+            width: calc(100% - 20px);
+            border: none;
+            outline: none;
+            padding: 6px;
+            background: transparent;
+        }
+        .form-input i {
+            color: #007BFF;
+            padding-right: 8px;
+        }
+        .form-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .form-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .security-logo {
+            margin-top: 10px;
+        }
+        .security-logo img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logos">
+            {% load static %}
+            <img class="logo" src="{% static 'app.png' %}" alt="Company Logo">
+            <img class="logo" src="https://t4.ftcdn.net/jpg/02/27/45/09/360_F_227450952_KQCMShHPOPebUXklULsKsROk5AvN6H1H.jpg" height="50" alt="Admin Logo">
+        </div>
+        <div class="title">Admin Login</div>
+        <form class="form" method="post">
+            {% csrf_token %}
+            <div class="form-input">
+                <i class="fas fa-user-shield"></i>
+                <input type="text" name="username" placeholder="Admin Username" required>
+            </div>
+            <div class="form-input">
+                <i class="fas fa-key"></i>
+                <input type="password" name="password" placeholder="Admin Password" required>
+            </div>
+            <button type="submit" class="form-button">Login</button>
+        </form>
+        <div class="security-logo">
+            <img src="https://static.vecteezy.com/system/resources/previews/000/658/541/large_2x/blue-shield-icon-vector.jpg" alt="Security Logo">
+        </div>
+    </div>
+    <!-- Include GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        // GSAP animations
+        gsap.from(".container", { opacity: 0, duration: 1, y: -50, ease: "power4.out" });
+        gsap.from(".logo", { opacity: 0, duration: 1, delay: 0.5, scale: 0.5, ease: "back.out(1.7)" });
+        gsap.from(".title", { opacity: 0, duration: 1, delay: 1, y: 30, ease: "power4.out" });
+        gsap.from(".form-input", { opacity: 0, duration: 1, delay: 1.5, y: 30, stagger: 0.2, ease: "power4.out" });
+        gsap.from(".form-button", { opacity: 0, duration: 1, delay: 2, y: 30, ease: "power4.out" });
+        gsap.from(".security-logo", { opacity: 0, duration: 1, delay: 2.5, y: 30, ease: "power4.out" });
+    </script>
+</body>
+</html>

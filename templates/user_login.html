@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login as User - Ecommerce Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 280px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            max-width: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+        }
+        .form-input input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+        }
+        .form-input i {
+            color: #ccc;
+        }
+        .form-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        {% load static %}
+        <img class="logo" src="{% static 'app.png'%}" alt="Ecommerce Logo">
+        <div class="title">Login as User</div>
+        <form class="form"  method="post">
+            {% csrf_token %}
+            <div class="form-input">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-input">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="form-button">Login</button>
+        </form>
+    </div>
+    <!-- Include GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        // More powerful GSAP animations
+        gsap.from(".container", { opacity: 0, duration: 1.5, y: -100, ease: "power4.out" });
+        gsap.from(".logo", { opacity: 0, duration: 1.5, delay: 0.5, scale: 0.5, ease: "back.out(1.7)" });
+        gsap.from(".title", { opacity: 0, duration: 1.5, delay: 1, y: 50, ease: "power4.out" });
+        gsap.from(".form-input", { opacity: 0, duration: 1.5, delay: 1.5, y: 50, stagger: 0.2, ease: "power4.out" });
+        gsap.from(".form-button", { opacity: 0, duration: 1.5, delay: 2, y: 50, ease: "power4.out" });
+    </script>
+</body>
+</html>

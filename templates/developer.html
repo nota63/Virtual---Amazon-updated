@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+        #popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #popup-content {
+            background: white;
+            width: 300px;
+            height: 150px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        #popup-content p {
+            margin: 0;
+            font-size: 14px;
+        }
+        #popup-content button {
+            padding: 10px 20px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        #popup-content button:hover {
+            background: #0056b3;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .box {
+            background: white;
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid lightblue;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .social-icons a {
+            margin: 5px;
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .tools img {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            transition: transform 0.3s ease;
+        }
+        .tools img:hover {
+            transform: scale(1.2);
+        }
+        .letter {
+            display: inline-block;
+            opacity: 0;
+        }
+        .text-bold {
+            font-weight: bold;
+        }
+        #back-button, #feedback-button {
+            position: fixed;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        #back-button {
+            top: 10px;
+            left: 20px;
+            background: #ff4757;
+            color: white;
+        }
+        #back-button:hover {
+            background: #e84118;
+        }
+        #feedback-button {
+            top: 10px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+        }
+        #feedback-button:hover {
+            background: #218838;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+
+<button id="back-button" onclick="goBack()">Back</button>
+<button id="feedback-button" onclick="location.href='{% url 'feedback' %}'">Feedback</button>
+
+<div id="popup">
+    <div id="popup-content">
+        <p>Security Notice: Be formal when talking to the developer. Don't contact for unimportant things. This program is built with many security features.</p>
+        <button onclick="startTemplate()">Sure</button>
+    </div>
+</div>
+
+<div class="container" id="template" style="display: none;">
+    <div class="box" id="box1">
+        {% load static %}
+        <img src="{% static 'my.jpeg'%}" alt="Profile Picture" class="profile-pic">
+        <div class="social-icons">
+            <a href="https://github.com/nota63" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/9022216598" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/vishal.dudhabarve.31" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://leetcode.com/u/curious_coder_3/" target="_blank"><i class="fas fa-code"></i></a>
+            <a href="https://www.linkedin.com/in/harshad-dudhabarve-3709302a1/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+        <div class="box" id="box2">
+        <h3 class="title">Tools Used</h3>
+        <div class="tools">
+            <img src="https://th.bing.com/th/id/OIP.r-lRAhnMLKcfraJROLSOBgAAAA?rs=1&pid=ImgDetMain" alt="Django">
+            <img src="https://brandlogos.net/wp-content/uploads/2020/12/python-logo.png" height="40" alt="Python">
+            <img src="https://th.bing.com/th/id/OIP.ZsKAZuP2-58f6LN8sCMF1AHaEu?rs=1&pid=ImgDetMain" alt="SQLite3">
+            <img src="https://th.bing.com/th/id/OIP.ZJ6X7sCvr31YGm36xzPWNgHaHa?rs=1&pid=ImgDetMain" alt="PyCharm">
+            <img src="https://th.bing.com/th/id/OIP.4-w5Y8pOB2u34xeiQN2IlwHaHa?rs=1&pid=ImgDetMain" alt="HTML">
+            <img src="https://th.bing.com/th/id/OIP.D8nRQ3Ms0R1vvrTi_LwH8AHaKY?rs=1&pid=ImgDetMain" alt="CSS">
+            <img src="https://cdn3d.iconscout.com/3d/free/preview/free-javascript-9294848-7577991.png?f=webp&h=700" alt="JavaScript">
+        </div>
+    </div>
+<!--    </div>-->
+
+    <div class="box" id="box3">
+        <h3 class="title">About</h3>
+        <p class="text text-bold">DjangoDynamo.</p>
+    </div>
+
+
+<script>
+    function startTemplate() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('template').style.display = 'flex';
+
+        gsap.from(".box", { duration: 1, opacity: 0, y: 50, stagger: 0.3 });
+
+        let textElements = document.querySelectorAll('.title, .text');
+        textElements.forEach(element => {
+            let letters = element.textContent.split('');
+            element.textContent = '';
+            letters.forEach(letter => {
+                let span = document.createElement('span');
+                span.textContent = letter;
+                span.className = 'letter';
+                element.appendChild(span);
+            });
+        });
+
+        let letters = document.querySelectorAll('.letter');
+        gsap.to(letters, { duration: 0.5, opacity: 1, y: 0, stagger: 0.05, delay: 1 });
+    }
+
+    function goBack() {
+        document.getElementById('popup').style.display = 'flex';
+        document.getElementById('template').style.display = 'none';
+    }
+
+    function provideFeedback() {
+        let feedbackUrl = "https://example.com/feedback"; // Replace with your feedback form URL
+        window.open(feedbackUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>

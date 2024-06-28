@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'about-us.css'%}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="about-container">
+            <h1>About Us</h1>
+            <p>Welcome to our platform where we bring you the best deals on less expensive and useful stuff. Our mission is to provide high-quality gadgets, mobile phones, laptops, and many more products that enhance your daily life without breaking the bank.</p>
+            <p>We are dedicated to offering a wide range of products that meet your needs and preferences. Our team carefully selects each item to ensure that you receive only the best in terms of quality and value. We understand the importance of staying updated with the latest technology and trends, and we strive to keep our catalog fresh and exciting.</p>
+        </div>
+        <div class="connections">
+            <h2>Connections</h2>
+            <div class="logos">
+                <img src="https://www.thestatesman.com/wp-content/uploads/2021/11/myntra.png" alt="Myntra">
+                <img src="https://th.bing.com/th/id/OIP.bvZGKlD5OFiiOJNNfo5YwAHaHa?rs=1&pid=ImgDetMain" alt="Amazon">
+                <img src="https://th.bing.com/th/id/OIP.idB_-eo5pNgOG8Ker3jEpgAAAA?rs=1&pid=ImgDetMain" alt="Flipkart">
+                <img src="https://asset20.ckassets.com/blog/wp-content/uploads/sites/6/2022/12/shopsy-logo-1024x512.jpg" alt="Shopsy">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        gsap.from(".about-container", {duration: 1, x: -100, opacity: 0});
+        gsap.from(".connections", {duration: 1, x: 100, opacity: 0});
+        gsap.from(".logos img", {duration: 1, scale: 0, opacity: 0, stagger: 0.5});
+    </script>
+</body>
+</html>
+
